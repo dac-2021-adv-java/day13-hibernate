@@ -19,6 +19,7 @@
 		<mapping class="in.edac.entity.Student"/>
 		<mapping class="in.edac.entity.Address"/>
 		<mapping class="in.edac.entity.Employee"/>
+		<mapping class="in.edac.entity.Project"/>
 	</session-factory>	
 </hibernate-configuration>	
 	

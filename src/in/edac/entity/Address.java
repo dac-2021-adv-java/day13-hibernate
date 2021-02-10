@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Address {
@@ -13,6 +14,9 @@ public class Address {
 	private int id;
 	private String city;
 	private String state;
+
+	@OneToOne
+	private Student student;
 
 	public Address() {
 		super();
@@ -46,6 +50,14 @@ public class Address {
 
 	public void setState(String state) {
 		this.state = state;
+	}
+
+	public Student getStudent() {
+		return student;
+	}
+
+	public void setStudent(Student student) {
+		this.student = student;
 	}
 
 }

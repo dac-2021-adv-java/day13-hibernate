@@ -1,9 +1,14 @@
 package in.edac.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -19,6 +24,10 @@ public class Student {
 
 	@OneToOne
 	private Address address;
+	
+	@OneToMany
+	@JoinTable(name = "STUDENT_PROJECTS")
+	private List<Project> projecList = new ArrayList<Project>();
 
 	public Student() {
 		super();
@@ -70,5 +79,15 @@ public class Student {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+
+	public List<Project> getProjecList() {
+		return projecList;
+	}
+
+	public void setProjecList(List<Project> projecList) {
+		this.projecList = projecList;
+	}
+	
+	
 
 }
