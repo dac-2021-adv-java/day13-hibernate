@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -26,7 +27,10 @@ public class Student {
 	private Address address;
 	
 	@OneToMany
-	@JoinTable(name = "STUDENT_PROJECTS")
+	@JoinTable(
+			name = "STUDENT_PROJECTS", 
+			joinColumns = @JoinColumn(name ="STUDENT_ID"), 
+			inverseJoinColumns = @JoinColumn(name ="PROJECT_ID"))
 	private List<Project> projecList = new ArrayList<Project>();
 
 	public Student() {

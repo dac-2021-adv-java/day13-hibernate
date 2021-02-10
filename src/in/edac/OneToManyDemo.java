@@ -22,8 +22,8 @@ public class OneToManyDemo {
 	public static void readRecord() {
 		Session session =  sessionFactory.openSession();
 		
-		Student st = session.find(Student.class, 9);
-		System.out.println(st);
+		Student st = session.find(Student.class, 15);
+		st.getProjecList().stream().map(Project::getName).forEach(System.out::println);
 		
 		session.close();
 	}
