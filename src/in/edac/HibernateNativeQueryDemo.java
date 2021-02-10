@@ -130,6 +130,18 @@ public class HibernateNativeQueryDemo {
 	}
 	
 	
+	public static void demo0() {
+		Session session =  sessionFactory.openSession();
+		
+		String sql = "SELECT * FROM STUDENT";
+		List<Student> list =  session.createNativeQuery(sql, Student.class).list();
+		
+		list.stream().map(Student::getName).forEach(System.out::println);
+		
+		session.close();
+	}
+	
+	
 	
 	
 	
