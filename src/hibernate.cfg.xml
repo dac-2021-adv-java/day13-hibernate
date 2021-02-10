@@ -17,6 +17,7 @@
 		<property name="hibernate.show_sql">true</property>
 		
 		<mapping class="in.edac.entity.Student"/>
+		<mapping class="in.edac.entity.Address"/>
 		<mapping class="in.edac.entity.Employee"/>
 	</session-factory>	
 </hibernate-configuration>	
