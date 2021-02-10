@@ -12,7 +12,32 @@ public class HibernateNativeQueryDemo {
 	public static final SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 	
 	public static void main(String[] args) {
-		demo6();
+		demo8SingleRecord();
+	}
+	
+	public static void demo8SingleRecord() {
+		Session session =  sessionFactory.openSession();
+		
+		String sql = "SELECT * FROM STUDENT WHERE id=:id";
+		Student std =  session.createNativeQuery(sql, Student.class)
+									.setParameter("id", 1)
+									.getSingleResult();
+		System.out.println(std);
+		
+		session.close();
+	}
+	
+	public static void demo7SingleRecord() {
+		Session session =  sessionFactory.openSession();
+		
+		String sql = "SELECT * FROM STUDENT WHERE id=:id";
+		List<Student> list =  session.createNativeQuery(sql, Student.class)
+									.setParameter("id", 1)
+									.list();
+		Student std = list.get(0);
+		System.out.println(std);
+		
+		session.close();
 	}
 	
 	
