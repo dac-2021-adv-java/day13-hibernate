@@ -14,6 +14,7 @@
 		
 		<!-- Allowing the Hibernate to Perform DDL Operation -->
 		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="hibernate.show_sql">true</property>
 		
 		<mapping class="in.edac.entity.Student"/>
 		<mapping class="in.edac.entity.Employee"/>
