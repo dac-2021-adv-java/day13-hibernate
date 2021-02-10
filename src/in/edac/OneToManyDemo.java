@@ -42,6 +42,8 @@ public class OneToManyDemo {
 		s1.setAddress(a1);
 		s1.setProjecList(projectList);
 		a1.setStudent(s1);
+		p1.setStudent(s1);
+		p2.setStudent(s1);
 		
 		session.save(s1);
 		session.save(a1);

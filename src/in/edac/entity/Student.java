@@ -1,6 +1,7 @@
 package in.edac.entity;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -26,12 +27,8 @@ public class Student {
 	@OneToOne
 	private Address address;
 	
-	@OneToMany
-	@JoinTable(
-			name = "STUDENT_PROJECTS", 
-			joinColumns = @JoinColumn(name ="STUDENT_ID"), 
-			inverseJoinColumns = @JoinColumn(name ="PROJECT_ID"))
-	private List<Project> projecList = new ArrayList<Project>();
+	@OneToMany(mappedBy = "student")
+	private Collection<Project> projecList = new ArrayList<Project>();
 
 	public Student() {
 		super();
@@ -84,13 +81,15 @@ public class Student {
 		this.address = address;
 	}
 
-	public List<Project> getProjecList() {
+	public Collection<Project> getProjecList() {
 		return projecList;
 	}
 
-	public void setProjecList(List<Project> projecList) {
+	public void setProjecList(Collection<Project> projecList) {
 		this.projecList = projecList;
 	}
+
+	
 	
 	
 
